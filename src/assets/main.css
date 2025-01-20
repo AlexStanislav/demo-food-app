@@ -1,0 +1,30 @@
+@import 'base.css';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Dancing Script', cursive;
+}
+
+.p-menubar .p-menubar-button .p-icon {
+    color: #fff;
+}
+
+.menu-filters .p-radiobutton-box {
+    border-radius: 1em;
+    border: 2px solid var(--p-amber-500);
+    border-radius: 0.25em;
+}
+
+.menu-filters .p-radiobutton-checked .p-radiobutton-icon {
+    border-radius: 0.25em;
+}
+
+
+.range-inputs .p-inputnumber,
+.range-inputs .p-inputnumber-input {
+    width: 100px !important;
+}
