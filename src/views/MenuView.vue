@@ -1,8 +1,8 @@
 <template>
     <section class="menu">
-        <nav class="filters-container">
-            <h2>Filters</h2>
-            <section class="filters-search">
+        <nav class="menu__nav">
+            <h2 class="nav__title">Filters</h2>
+            <section class="menu__search">
                 <InputGroup>
                     <InputGroupAddon>
                         <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
@@ -10,19 +10,19 @@
                     <AutoComplete v-model="filters.searchTerm" :suggestions="suggestions" @complete="completeMethod"
                         option-label="menu_item_name" placeholder="Search by name" @option-select="selectItem" />
                 </InputGroup>
-                <label for="vegan">
-                    <Checkbox id="vegan" v-model="filters.showVegetarian" binary />
+                <label class="vegetarian-check" for="vegetarian">
+                    <Checkbox id="vegetarian" v-model="filters.showVegetarian" binary />
                     Show only vegetarian items
                 </label>
 
             </section>
 
-            <section class="menu-filters">
+            <section class="filters__wrapper">
 
-                <section class="spiciness-filter">
-                    <h3 class="filters-title">Spiciness</h3>
-                    <ul class="spiciness-list">
-                        <li class="list-item" v-for="spiciness in 3" :key="spiciness">
+                <section class="spiciness">
+                    <h3 class="filters__title">Spiciness</h3>
+                    <ul class="spiciness__list">
+                        <li class="spiciness__item" v-for="spiciness in 3" :key="spiciness">
                             <RadioButton v-model="filters.spiciness" :value="spiciness" />
                             <span><font-awesome-icon icon="fa-solid fa-pepper-hot" v-for="(icon, index) in spiciness"
                                     :key="index" color="var(--p-amber-600)" /></span>
@@ -32,8 +32,8 @@
                     </ul>
                 </section>
 
-                <section class="ingredients-filter">
-                    <h3 class="filters-title">Ingredients</h3>
+                <section class="ingredients">
+                    <h3 class="filters__title">Ingredients</h3>
                     <InputGroup>
                         <InputGroupAddon>
                             <font-awesome-icon icon="fa-solid fa-utensils" />
@@ -43,8 +43,8 @@
                     </InputGroup>
                 </section>
 
-                <section class="calories-filter">
-                    <h3 class="filters-title">Calories</h3>
+                <section class="calories">
+                    <h3 class="filters__title">Calories</h3>
                     <div class="range-inputs">
                         <InputNumber v-model="filters.calories[0]" placeholder="Min" />
                         <InputNumber v-model="filters.calories[1]" placeholder="Max" />
@@ -52,8 +52,8 @@
                     <Slider v-model="filters.calories" :min="0" :max="2000" :step="50" range />
                 </section>
 
-                <section class="price-filter">
-                    <h3 class="filters-title">Price</h3>
+                <section class="price">
+                    <h3 class="filters__title">Price</h3>
                     <div class="range-inputs">
                         <InputGroup>
                             <InputNumber v-model="filters.price[0]" placeholder="Min" />
@@ -65,8 +65,8 @@
                 </section>
             </section>
         </nav>
-        <section class="menu-wrapper">
-            <h3 v-if="menuItems.length === 0">No items found</h3>
+        <section class="menu__items">
+            <h3 class="no-results" v-if="menuItems.length === 0">No items found</h3>
             <MenuItem v-for="item in menuItems" :key="item.menu_item_id" :item="item" />
         </section>
     </section>
@@ -198,7 +198,7 @@ watch(filters, () => {
     border: var(--p-amber-500);
 }
 
-.menu-filters {
+.filters__wrapper {
     width: 350px;
     height: 100%;
     margin-right: 2em;
@@ -208,18 +208,18 @@ watch(filters, () => {
     gap: 2em;
 }
 
-.filters-container {
+.menu__nav {
     margin: 4em 0;
 }
 
-.filters-container h2 {
+.nav__title {
     color: var(--p-amber-600);
     font-size: 2em;
     text-align: center;
     margin: 0 0 1em 0;
 }
 
-.filters-title {
+.filters__title {
     color: var(--p-amber-600);
     margin: 0;
     font-size: 1.5em;
@@ -227,7 +227,7 @@ watch(filters, () => {
     margin-bottom: 1em;
 }
 
-.filters-search {
+.menu__search {
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -235,7 +235,7 @@ watch(filters, () => {
     margin-bottom: 1em;
 }
 
-.filters-search label {
+.vegetarian-check {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,7 +254,7 @@ watch(filters, () => {
 }
 
 
-.spiciness-list {
+.spiciness__list {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -263,7 +263,7 @@ watch(filters, () => {
     margin: 0;
 }
 
-.spiciness-list .list-item {
+.spiciness__list .spiciness__item {
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -277,7 +277,7 @@ watch(filters, () => {
 }
 
 
-.menu-wrapper {
+.menu__items {
     width: 100%;
     margin: 4em 0;
     display: flex;
@@ -287,7 +287,7 @@ watch(filters, () => {
     gap: 1rem;
 }
 
-.menu-wrapper h3 {
+.no-results {
     width: 100%;
     text-align: center;
     color: var(--p-amber-600);
@@ -301,11 +301,11 @@ watch(filters, () => {
         align-items: center;
     }
 
-    .menu-filters {
+    .filters__wrapper {
         width: 90%;
     }
 
-    .menu-wrapper {
+    .menu__items {
         justify-content: center;
     }
 }

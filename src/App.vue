@@ -1,36 +1,36 @@
 <template>
-  <header>
-    <nav>
+  <header class="header">
+    <nav class="nav">
 
-      <div class="menu-logo">
+      <div class="logo">
         <FontAwesomeIcon icon="fa-solid fa-burger" size="lg" />
         <span>Food App</span>
       </div>
 
-      <i class="pi pi-bars menu-icon" @click="menuOpen = !menuOpen"></i>
+      <i class="pi pi-bars mobile-menu" @click="menuOpen = !menuOpen"></i>
       <Drawer v-model:visible="menuOpen">
-        <ul class="drawer-links" @click="menuOpen = false">
-          <li>
+        <ul class="drawer__list" @click="menuOpen = false">
+          <li class="drawer__list-item">
             <router-link to="/">
               <FontAwesomeIcon icon="fa-solid fa-house" /> Home
             </router-link>
           </li>
-          <li>
+          <li class="drawer__list-item">
             <router-link to="/menu/appetizers">
               <FontAwesomeIcon icon="fa-solid fa-utensils" /> Appetizers
             </router-link>
           </li>
-          <li>
+          <li class="drawer__list-item">
             <router-link to="/menu/entrees">
               <FontAwesomeIcon icon="fa-solid fa-utensils" /> Entrees
             </router-link>
           </li>
-          <li>
+          <li class="drawer__list-item">
             <router-link to="/menu/main courses">
               <FontAwesomeIcon icon="fa-solid fa-utensils" /> Main Courses
             </router-link>
           </li>
-          <li>
+          <li class="drawer__list-item">
             <router-link to="/menu/desserts">
               <FontAwesomeIcon icon="fa-solid fa-cake" /> Desserts
             </router-link>
@@ -38,8 +38,8 @@
         </ul>
       </Drawer>
 
-      <div class="nav-links-container">
-        <ul class="nav-links">
+      <div class="nav__links">
+        <ul class="nav__list">
           <li>
             <router-link to="/">
               <FontAwesomeIcon icon="fa-solid fa-house" /> Home
@@ -65,43 +65,43 @@
 
     </nav>
   </header>
-  <main>
+  <main class="main">
     <router-view></router-view>
   </main>
-  <footer>
-    <section>
-      <h3>Schedule</h3>
-      <ul>
-        <li><span>Monday:</span> 11:00 - 18:00</li>
-        <li><span>Tuesday:</span> 11:00 - 18:00</li>
-        <li><span>Wednesday:</span> 11:00 - 18:00</li>
-        <li><span>Thursday:</span> 11:00 - 18:00</li>
-        <li><span>Friday:</span> 11:00 - 16:00</li>
-        <li><span>Saturday and Sunday:</span> Closed</li>
+  <footer class="footer">
+    <section class="footer__section contact-info">
+      <h3 class="footer__section-title">Schedule</h3>
+      <ul class="footer__list">
+        <li class="footer__list-item"><span>Monday:</span> 11:00 - 18:00</li>
+        <li class="footer__list-item"><span>Tuesday:</span> 11:00 - 18:00</li>
+        <li class="footer__list-item"><span>Wednesday:</span> 11:00 - 18:00</li>
+        <li class="footer__list-item"><span>Thursday:</span> 11:00 - 18:00</li>
+        <li class="footer__list-item"><span>Friday:</span> 11:00 - 16:00</li>
+        <li class="footer__list-item"><span>Saturday and Sunday:</span> Closed</li>
       </ul>
-      <h3>Contact</h3>
-      <ul>
-        <li><span>Phone:</span> (555) 555-5555</li>
-        <li><span>Email:</span> fake@example.com</li>
-        <li><span>Address:</span> 123 Main St, Anytown USA</li>
-      </ul>
-    </section>
-    <section>
-      <h3>Legal</h3>
-      <ul>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Refund Policy</a></li>
-      </ul>
-      <h3>Follow Us</h3>
-      <ul class="social-icons">
-        <li><i class="pi pi-facebook"></i><a href="#">Facebook</a></li>
-        <li><i class="pi pi-twitter"></i><a href="#">Twitter</a></li>
-        <li><i class="pi pi-instagram"></i><a href="#">Instagram</a></li>
+      <h3 class="footer__section-title">Contact</h3>
+      <ul class="footer__list">
+        <li class="footer__list-item"><span>Phone:</span> (555) 555-5555</li>
+        <li class="footer__list-item"><span>Email:</span> fake@example.com</li>
+        <li class="footer__list-item"><span>Address:</span> 123 Main St, Anytown USA</li>
       </ul>
     </section>
-    <section>
-      <h3>Newsletter</h3>
+    <section class="footer__section legal-info">
+      <h3 class="footer__section-title">Legal</h3>
+      <ul class="footer__list">
+        <li class="footer__list-item">Privacy Policy</li>
+        <li class="footer__list-item">Terms of Use</li>
+        <li class="footer__list-item">Refund Policy</li>
+      </ul>
+      <h3 class="footer__section-title">Follow Us</h3>
+      <ul class="footer__list social-icons">
+        <li class="footer__list-item"><i class="pi pi-facebook"></i>Facebook</li>
+        <li class="footer__list-item"><i class="pi pi-twitter"></i>Twitter</li>
+        <li class="footer__list-item"><i class="pi pi-instagram"></i>Instagram</li>
+      </ul>
+    </section>
+    <section class="footer__section newsletter">
+      <h3 class="footer__section-title">Newsletter</h3>
       <p>Sign up for our newsletter to get the latest updates.</p>
       <InputGroup>
         <InputText type="text" placeholder="Enter your email address" />
@@ -109,11 +109,11 @@
           <Button icon="pi pi-arrow-right" />
         </InputGroupAddon>
       </InputGroup>
-      <p>By signing up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
+      <p>By signing up, you agree to our Terms of Use and Privacy Policy.</p>
       <p>&copy; 2023 Food App. All rights reserved.</p>
     </section>
   </footer>
-  <div class="footer-banner">
+  <div class="footer__banner">
     <p>&copy; 2024. All rights reserved.</p>
   </div>
 </template>
@@ -138,7 +138,7 @@ onBeforeMount(async () => {
 
 </script>
 <style scoped>
-header {
+.header {
   width: 100%;
   height: 80px;
   display: flex;
@@ -147,7 +147,7 @@ header {
   background-color: var(--p-amber-600);
 }
 
-nav {
+.nav {
   width: 90%;
   display: flex;
   margin: auto;
@@ -155,24 +155,24 @@ nav {
   align-items: center;
 }
 
-.nav-links-container {
+.nav__links {
   display: flex;
   flex-flow: row;
   align-items: center;
   gap: 1em;
 }
 
-.nav-links-container .p-inputgroup {
+.nav__links .p-inputgroup {
   width: fit-content;
 }
 
-.nav-links-container .p-inputgroupaddon {
+.nav__links .p-inputgroupaddon {
   background-color: var(--p-amber-500);
   border: none;
   color: #fff;
 }
 
-.nav-links {
+.nav__list {
   list-style: none;
   display: flex;
   flex-flow: row;
@@ -185,7 +185,7 @@ nav {
   font-size: 0.9em;
 }
 
-.nav-links li a {
+.nav__list li a {
   text-decoration: none;
   color: #fff;
   font-size: 1.2em;
@@ -197,17 +197,17 @@ nav {
   gap: 0.5em;
 }
 
-.nav-links li a:hover {
+.nav__list li a:hover {
   color: var(--p-amber-500);
   background-color: #fff;
 }
 
-.menu-icon {
+.mobile-menu {
   display: none;
   color: #fff
 }
 
-.menu-logo {
+.logo {
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -221,11 +221,11 @@ nav {
   font-size: 0.8em;
 }
 
-main {
+.main {
   min-height: 100vh;
 }
 
-footer {
+.footer {
   width: 100%;
   background: var(--p-amber-600);
   padding: 5em;
@@ -238,13 +238,13 @@ footer {
   margin-top: 4em;
 }
 
-footer section {
+.footer__section {
   width: 400px;
   color: #fff;
   font-size: 0.8em;
 }
 
-footer section h3 {
+.footer__section-title {
   margin-bottom: 1em;
   font-size: 1.5em;
   border-bottom: 1px solid #fff;
@@ -252,30 +252,25 @@ footer section h3 {
   margin-top: 2em;
 }
 
-footer section ul {
+.footer__list {
   list-style: none;
   padding: 0;
   color: #fff;
 }
 
-footer section ul li {
+.footer__list-item {
   margin-bottom: 0.5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-footer section ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.social-icons li {
+.social-icons .footer__list-item {
   justify-content: flex-start;
   gap: 0.5em;
 }
 
-.footer-banner {
+.footer__banner {
   width: 100%;
   background: var(--p-amber-600);
   text-align: center;
@@ -286,29 +281,29 @@ footer section ul li a {
 
 
 @media screen and (max-width: 414px) and (orientation: portrait) {
-  header {
+  .header {
     background: var(--p-amber-600);
     height: 40px;
     margin: 0;
   }
 
-  .nav-links {
+  .nav__links {
     display: none;
   }
 
-  .menu-icon {
+  .mobile-menu {
     display: block;
     cursor: pointer;
   }
 
-  .menu-logo {
+  .logo {
     font-size: 1.5em;
     position: absolute;
     color: #fff;
     right: 1em;
   }
 
-  .drawer-links {
+  .drawer__list {
     list-style: none;
     display: flex;
     flex-flow: column;
@@ -320,13 +315,13 @@ footer section ul li a {
     font-size: 1.2em;
   }
 
-  .drawer-links li {
+  .drawer__list-item {
     width: 100%;
     margin: 0.5em 0;
     border-bottom: 1px solid var(--p-amber-500);
   }
 
-  .drawer-links li a {
+  .drawer__list-item a {
     text-decoration: none;
     color: var(--p-amber-600);
     display: flex;
@@ -336,18 +331,18 @@ footer section ul li a {
     padding: 0.5em 0;
   }
 
-  .drawer-links li a svg {
+  .drawer__list-item a svg {
     width: 1.5em;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  footer {
+  .footer {
     padding: 1em 15em;
     gap: 12%;
   }
 
-  footer section {
+  .footer__section {
     width: fit-content;
     font-size: 1em;
   }
