@@ -1,8 +1,8 @@
+# [Live Preview](https://demo-food-app.onrender.com)
+
 # demo-food
 
 A demo for a simple food presentation app
-
-Live demo: https://demo-food-app.onrender.com
 
 ## Recommended IDE Setup
 
