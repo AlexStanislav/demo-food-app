@@ -3,7 +3,7 @@
     <nav class="nav">
 
       <div class="logo">
-        <FontAwesomeIcon icon="fa-solid fa-burger" size="lg" />
+
         <span>Food App</span>
       </div>
 
@@ -12,27 +12,27 @@
         <ul class="drawer__list" @click="menuOpen = false">
           <li class="drawer__list-item">
             <router-link to="/">
-              <FontAwesomeIcon icon="fa-solid fa-house" /> Home
+              Home
             </router-link>
           </li>
           <li class="drawer__list-item">
             <router-link to="/menu/appetizers">
-              <FontAwesomeIcon icon="fa-solid fa-utensils" /> Appetizers
+              Appetizers
             </router-link>
           </li>
           <li class="drawer__list-item">
             <router-link to="/menu/entrees">
-              <FontAwesomeIcon icon="fa-solid fa-utensils" /> Entrees
+              Entrees
             </router-link>
           </li>
           <li class="drawer__list-item">
-            <router-link to="/menu/main courses">
-              <FontAwesomeIcon icon="fa-solid fa-utensils" /> Main Courses
+            <router-link to="/menu/main course">
+              Main Courses
             </router-link>
           </li>
           <li class="drawer__list-item">
             <router-link to="/menu/desserts">
-              <FontAwesomeIcon icon="fa-solid fa-cake" /> Desserts
+
             </router-link>
           </li>
         </ul>
@@ -42,22 +42,22 @@
         <ul class="nav__list">
           <li>
             <router-link to="/">
-              <FontAwesomeIcon icon="fa-solid fa-house" /> Home
+              Home
             </router-link>
           </li>
           <li>
             <router-link to="/menu/appetizers">
-              <FontAwesomeIcon icon="fa-solid fa-burger" /> Appetizers
+              Appetizers
             </router-link>
           </li>
           <li>
             <router-link to="/menu/entrees">
-              <FontAwesomeIcon icon="fa-solid fa-utensils" /> Entrees
+              Entrees
             </router-link>
           </li>
           <li>
-            <router-link to="/menu/main courses">
-              <FontAwesomeIcon icon="fa-solid fa-plate-wheat" /> Main Courses
+            <router-link to="/menu/main course">
+              Main Courses
             </router-link>
           </li>
         </ul>
@@ -120,7 +120,6 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
 import { useAppStore } from './stores/app';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Drawer from 'primevue/drawer';
 import Button from 'primevue/button';
 import InputGroup from 'primevue/inputgroup';

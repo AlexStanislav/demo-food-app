@@ -20,11 +20,11 @@
   <section class="recommended-items">
     <h2 class="home__title">Recommended</h2>
     <p class="recommended-items__tags">
-      <span>
-        <FontAwesomeIcon icon="fa-solid fa-leaf" color="var(--p-green-500)" /> &nbsp;Vegetarian
+      <span class="tag">
+        <i class="vegetarian"></i>&nbsp;Vegetarian
       </span>
-      <span>
-        <FontAwesomeIcon icon="fa-solid fa-pepper-hot" color="var(--p-amber-700)" /> &nbsp;Spicy
+      <span class="tag">
+        <i class="pepper"></i>&nbsp;Spiciness level
       </span>
     </p>
     <div class="recommended__wrapper">
@@ -36,7 +36,6 @@
 import { onMounted, ref, watch } from 'vue';
 import { useAppStore } from '@/stores/app';
 import type { FoodItems } from '@/utils/globalTypes';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import Carousel from 'primevue/carousel';
 import MenuItem from '@/components/MenuItem.vue';
@@ -80,6 +79,8 @@ watch(appStore, () => {
 
 </script>
 <style scoped>
+@import "../assets/icons.css";
+
 .home__title {
   text-align: center;
   font-size: 2rem;
@@ -129,6 +130,20 @@ watch(appStore, () => {
   gap: 1rem;
   font-size: 0.8rem;
   margin-bottom: 2em;
+}
+
+.recommended-items .tag {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.recommended-items__tags .vegetarian {
+  font-size: 1.2em;
+}
+
+.recommended-items__tags .pepper {
+  font-size: 1.1em;
 }
 
 .recommended__wrapper {

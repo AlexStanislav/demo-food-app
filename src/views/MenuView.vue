@@ -24,8 +24,7 @@
                     <ul class="spiciness__list">
                         <li class="spiciness__item" v-for="spiciness in 3" :key="spiciness">
                             <RadioButton v-model="filters.spiciness" :value="spiciness" />
-                            <span><font-awesome-icon icon="fa-solid fa-pepper-hot" v-for="(icon, index) in spiciness"
-                                    :key="index" color="var(--p-amber-600)" /></span>
+                            <i class="pepper" v-for="index in spiciness" :key="index"></i>
                         </li>
                         <i v-if="filters.spiciness > 0" @click="resetFilter()" title="Reset filter"
                             class="reset-filter pi pi-filter-slash"></i>
@@ -150,12 +149,14 @@ onMounted(async () => {
 function getMenuItemsByCategory(): FoodItems[] {
     const items = appStore.items
     return items.filter((item) => {
+        console.log(item.menu_section, route.params.category)
         return item.menu_section === route.params.category
     })
 }
 
 function filterItems(): void {
     const filteredItems = getMenuItemsByCategory().filter((item) => {
+        console.log(item)
         const vegetarianMatch = filters.value.showVegetarian ? item.vegetarian : true
         const searchTermMatch = item.menu_item_name.toLowerCase().includes(filters.value.searchTerm.toLowerCase())
         const spicinessMatch = filters.value.spiciness === 0 ? true : item.spicy_level === spiceDict[filters.value.spiciness]
@@ -187,6 +188,8 @@ watch(filters, () => {
 
 </script>
 <style scoped>
+@import "../assets/icons.css";
+
 .menu {
     display: flex;
     padding-left: 3em;

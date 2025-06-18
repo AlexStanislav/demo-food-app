@@ -1,8 +1,7 @@
 <template>
     <section class="item">
         <div class="item__img-wrapper">
-            <img class="item__img" :src="`https://picsum.photos/600/600/?random=${item.menu_item_id}`"
-                :alt="item.menu_item_name" />
+            <img class="item__img" :src="`/images/${item.food_image_url}`" :alt="item.menu_item_name" />
         </div>
         <div class="item__img-loader">
             <ProgressSpinner stroke-width="4" />
@@ -10,13 +9,11 @@
         <div class="item__info">
             <h3 class="item__name">
                 {{ item.menu_item_name.split('')[0].toUpperCase() + item.menu_item_name.slice(1) }}
-                <font-awesome-icon v-if="item.vegetarian" icon="fa-solid fa-leaf" color="var(--p-green-500)" size="lg"
-                    style="margin-top: 0.25rem;" />
+                <i class="vegetarian" v-if="item.vegetarian"></i>
             </h3>
             <div class="item__spice-rating">
-                <font-awesome-icon v-for="i in 3" :key="i" icon="fa-solid fa-pepper-hot"
-                    :color="i <= getSpiceRating(item) ? 'var(--p-amber-700)' : 'var(--p-amber-400)'"
-                    style="font-size: 0.8rem;" />
+                <i class="pepper" :class="index <= getSpiceRating(item) ? '' : 'pepper--empty'" v-for="index in 3"
+                    :key="index"></i>
             </div>
             <div class="item__ingredients">
                 <h4 class="item__ingredients-title">Ingredients</h4>
@@ -72,6 +69,8 @@ function getIngredients(item: FoodItems): string[] {
 
 </script>
 <style scoped>
+@import "../assets/icons.css";
+
 .item {
     width: 400px;
     display: flex;
@@ -92,7 +91,8 @@ function getIngredients(item: FoodItems): string[] {
 
 .item__img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     border-radius: 0.5rem;
 }
 
@@ -126,6 +126,12 @@ function getIngredients(item: FoodItems): string[] {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.item__name .vegetarian {
+    position: relative;
+    top: 2px;
+    color: green;
 }
 
 .fa-leaf {
