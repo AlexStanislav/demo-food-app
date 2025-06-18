@@ -1,6 +1,8 @@
+# [Live Preview](https://demo-food-app.onrender.com)
+
 # demo-food
 
-This template should help get you started developing with Vue 3 in Vite.
+A demo for a simple food presentation app
 
 ## Recommended IDE Setup
 
