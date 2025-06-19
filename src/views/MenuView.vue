@@ -149,8 +149,7 @@ onMounted(async () => {
 function getMenuItemsByCategory(): FoodItems[] {
     const items = appStore.items
     return items.filter((item) => {
-        console.log(item.menu_section, route.params.category)
-        return item.menu_section === route.params.category
+        return item.menu_section.replace(" ", "") === route.params.category
     })
 }
 

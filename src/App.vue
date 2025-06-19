@@ -3,7 +3,7 @@
     <nav class="nav">
 
       <div class="logo">
-
+        <i class="logo-icon"></i>
         <span>Food App</span>
       </div>
 
@@ -32,7 +32,7 @@
           </li>
           <li class="drawer__list-item">
             <router-link to="/menu/desserts">
-
+              Desserts
             </router-link>
           </li>
         </ul>
@@ -40,24 +40,34 @@
 
       <div class="nav__links">
         <ul class="nav__list">
-          <li>
+          <li class="list__item">
             <router-link to="/">
+              <i class="home"></i>
               Home
             </router-link>
           </li>
-          <li>
+          <li class="list__item">
             <router-link to="/menu/appetizers">
+              <i class="appetizers"></i>
               Appetizers
             </router-link>
           </li>
-          <li>
+          <li class="list__item">
             <router-link to="/menu/entrees">
+              <i class="entrees"></i>
               Entrees
             </router-link>
           </li>
-          <li>
-            <router-link to="/menu/main course">
+          <li class="list__item">
+            <router-link to="/menu/maincourse">
+              <i class="main-course"></i>
               Main Courses
+            </router-link>
+          </li>
+          <li class="list__item">
+            <router-link to="/menu/desserts">
+              <i class="desserts"></i>
+              Desserts
             </router-link>
           </li>
         </ul>
@@ -110,11 +120,10 @@
         </InputGroupAddon>
       </InputGroup>
       <p>By signing up, you agree to our Terms of Use and Privacy Policy.</p>
-      <p>&copy; 2023 Food App. All rights reserved.</p>
     </section>
   </footer>
   <div class="footer__banner">
-    <p>&copy; 2024. All rights reserved.</p>
+    <p>&copy; All rights belong to their respective owners.</p>
   </div>
 </template>
 <script setup lang="ts">
@@ -137,6 +146,8 @@ onBeforeMount(async () => {
 
 </script>
 <style scoped>
+@import "./assets/icons.css";
+
 .header {
   width: 100%;
   height: 80px;
@@ -184,7 +195,7 @@ onBeforeMount(async () => {
   font-size: 0.9em;
 }
 
-.nav__list li a {
+.list__item a {
   text-decoration: none;
   color: #fff;
   font-size: 1.2em;
@@ -196,7 +207,7 @@ onBeforeMount(async () => {
   gap: 0.5em;
 }
 
-.nav__list li a:hover {
+.list__item a:hover {
   color: var(--p-amber-500);
   background-color: #fff;
 }
@@ -209,7 +220,6 @@ onBeforeMount(async () => {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5em;
   font-size: 2.5em;
   font-weight: bold;
   color: #fff;
